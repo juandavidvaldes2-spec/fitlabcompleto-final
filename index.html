@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis de Territorio de Marca · Savia + Fit Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f1e8;
+    --bg-warm: #ede7d8;
+    --bg-sage: #e3ebd9;
+    --surface: #ffffff;
+    --savia: #2d5a4a;
+    --savia-light: #4f7a6b;
+    --savia-soft: #c8d4c0;
+    --savia-bg: #f1f5ec;
+    --fitlab: #d96b3d;
+    --fitlab-light: #e88e64;
+    --fitlab-soft: #f3d6c4;
+    --fitlab-bg: #fcebe1;
+    --citrus: #e9b850;
+    --text: #1a1f1c;
+    --text-body: #2a312e;
+    --text-muted: #6b7268;
+    --border: #e0d9c8;
+    --border-strong: #c9c1ad;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-body);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+  }
+
+  h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); font-weight: 400; }
+  h2 { font-size: clamp(1.65rem, 3.2vw, 2.5rem); margin-bottom: 0.5em; }
+  h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); margin-bottom: 0.5em; font-weight: 500; }
+  h4 { font-size: 1.125rem; font-weight: 600; }
+
+  p { margin-bottom: 1em; }
+  p.lead { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; }
+
+  a { color: var(--savia); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Top nav */
+  .topnav {
+    position: sticky;
+    top: 0;
+    background: rgba(245, 241, 232, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 1rem 0;
+  }
+  .topnav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .nav-brand {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .nav-brand small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .topnav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    font-size: 0.875rem;
+    flex-wrap: wrap;
+  }
+  .topnav ul a {
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+  .topnav ul a:hover { color: var(--savia); text-decoration: none; }
+
+  /* Layout */
+  section { padding: 5rem 0; }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .container-narrow {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 0 5rem;
+    background:
+      radial-gradient(ellipse 800px 400px at 80% 0%, rgba(45, 90, 74, 0.08), transparent 60%),
+      radial-gradient(ellipse 600px 500px at 10% 100%, rgba(217, 107, 61, 0.06), transparent 60%),
+      var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--savia);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.85rem;
+    background: var(--savia-soft);
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    margin-bottom: 1.25rem;
+    max-width: 22ch;
+  }
+  .hero .savia-mark { color: var(--savia); font-style: italic; font-weight: 400; }
+  .hero .fitlab-mark { color: var(--fitlab); font-style: italic; font-weight: 400; }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-strong);
+  }
+  .hero-meta dt {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .hero-meta dd {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  /* Section title */
+  .section-title {
+    margin-bottom: 3rem;
+    max-width: 760px;
+  }
+  .section-title .eyebrow { background: transparent; padding-left: 0; color: var(--text-muted); }
+  .section-title h2 { margin-top: 1rem; }
+  .section-title p { margin-top: 1rem; color: var(--text-muted); font-size: 1.05rem; }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+  .card-list { list-style: none; }
+  .card-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    display: flex;
+    gap: 0.75rem;
+  }
+  .card-list li:last-child { border-bottom: none; }
+  .card-list li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    margin-top: 0.55rem;
+    border-radius: 50%;
+    background: var(--savia);
+  }
+  .card-list.fitlab li::before { background: var(--fitlab); }
+
+  /* Two-column compare */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .compare-savia, .compare-fitlab {
+    border-radius: 16px;
+    padding: 2.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .compare-savia {
+    background: linear-gradient(155deg, var(--savia-bg) 0%, var(--savia-soft) 100%);
+    border: 1px solid var(--savia-soft);
+  }
+  .compare-fitlab {
+    background: linear-gradient(155deg, var(--fitlab-bg) 0%, var(--fitlab-soft) 100%);
+    border: 1px solid var(--fitlab-soft);
+  }
+  .compare-savia .brand-badge { color: var(--savia); }
+  .compare-fitlab .brand-badge { color: var(--fitlab); }
+  .brand-badge {
+    font-family: 'Fraunces', serif;
+    font-size: 1.85rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+  }
+  .brand-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    display: block;
+    font-weight: 600;
+  }
+
+  /* Topic grid */
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .topic-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+  .topic-card .topic-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: var(--savia);
+    font-weight: 400;
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .topic-card.fitlab .topic-num { color: var(--fitlab); }
+  .topic-card h4 {
+    margin-bottom: 0.75rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+  }
+  .topic-card p {
+    font-size: 0.92rem;
+    color: var(--text-body);
+    margin-bottom: 0.5rem;
+  }
+  .topic-card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+  .topic-card ul li {
+    padding: 0.3rem 0;
+    color: var(--text-body);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .topic-card ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-muted);
+  }
+
+  /* Customer journey · clean version without icons */
+  .journey-section {
+    margin-top: 3rem;
+  }
+  .journey-section + .journey-section { margin-top: 5rem; }
+
+  .journey-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .journey-header h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  .journey-header .pill {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .journey-header .pill.savia { background: var(--savia-soft); color: var(--savia); }
+  .journey-header .pill.fitlab { background: var(--fitlab-soft); color: var(--fitlab); }
+
+  .journey-track {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .journey-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .journey-track.savia .journey-step {
+    background: linear-gradient(180deg, var(--savia-bg) 0%, var(--surface) 80%);
+    border-color: var(--savia-soft);
+  }
+  .journey-track.fitlab .journey-step {
+    background: linear-gradient(180deg, var(--fitlab-bg) 0%, var(--surface) 80%);
+    border-color: var(--fitlab-soft);
+  }
+
+  .journey-step .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    display: block;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .journey-step h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.65rem;
+    line-height: 1.25;
+  }
+  .journey-step p {
+    font-size: 0.86rem;
+    color: var(--text-body);
+    line-height: 1.5;
+    margin-bottom: 0;
+    flex-grow: 1;
+  }
+  .journey-step .estorba {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border-top: 1px dashed var(--border-strong);
+    padding-top: 0.75rem;
+    margin-top: 1rem;
+    line-height: 1.45;
+  }
+  .journey-step .estorba strong {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+  }
+
+  /* Quote grid */
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .quote-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--savia);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  .quote-card.fitlab { border-left-color: var(--fitlab); }
+  .quote-card blockquote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  /* Image grid 3 targets */
+  .targets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .target-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+  .target-card.savia { background: linear-gradient(180deg, var(--savia-bg) 0%, var(--surface) 70%); border-color: var(--savia-soft); }
+  .target-card.fitlab { background: linear-gradient(180deg, var(--fitlab-bg) 0%, var(--surface) 70%); border-color: var(--fitlab-soft); }
+  .target-card .target-tag {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .target-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .target-card ul {
+    list-style: none;
+    font-size: 0.88rem;
+  }
+  .target-card ul li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .target-card ul li:last-child { border-bottom: none; }
+
+  /* Territory map */
+  .territory-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+  .territory {
+    padding: 2rem;
+    border-right: 1px solid var(--border);
+  }
+  .territory:last-child { border-right: none; }
+  .territory.savia {
+    background: linear-gradient(180deg, var(--savia-bg) 0%, transparent 100%);
+  }
+  .territory.fitlab {
+    background: linear-gradient(180deg, var(--fitlab-bg) 0%, transparent 100%);
+  }
+  .territory.shared {
+    background: linear-gradient(180deg, #f5f3eb 0%, transparent 100%);
+  }
+  .territory h4 {
+    margin-bottom: 1rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+  .territory.savia h4 { color: var(--savia); }
+  .territory.fitlab h4 { color: var(--fitlab); }
+  .territory.shared h4 { color: var(--citrus); }
+  .territory ul {
+    list-style: none;
+    font-size: 0.9rem;
+  }
+  .territory ul li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .territory ul li:last-child { border-bottom: none; }
+
+  /* Risk + opportunity grid */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .risk-block {
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+  }
+  .risk-block.opp {
+    background: var(--bg-sage);
+    border-color: var(--savia-soft);
+  }
+  .risk-block.risk {
+    background: var(--fitlab-soft);
+    border-color: var(--fitlab-light);
+  }
+  .risk-block h3 {
+    font-family: 'Fraunces', serif;
+    margin-bottom: 1rem;
+  }
+  .risk-block.opp h3 { color: var(--savia); }
+  .risk-block.risk h3 { color: var(--fitlab); }
+  .risk-block ol {
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+  }
+  .risk-block ol li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .risk-block ol li:last-child { border-bottom: none; }
+  .risk-block ol li strong { color: var(--text); }
+
+  /* Recommendations */
+  .reco-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .reco {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .reco-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--savia);
+    line-height: 1;
+  }
+  .reco h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .reco p { font-size: 0.95rem; margin-bottom: 0; }
+  .reco.fitlab .reco-num { color: var(--fitlab); }
+  .reco.shared .reco-num { color: var(--citrus); }
+
+  /* Methodology cards */
+  .meth-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .meth-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .meth-card .meth-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    color: var(--savia);
+    font-weight: 400;
+    line-height: 1;
+    display: block;
+  }
+  .meth-card h5 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+  .meth-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .meth-card.pending {
+    background: var(--bg-warm);
+    border-style: dashed;
+  }
+  .meth-card.pending .meth-num { color: var(--citrus); }
+
+  /* Callout */
+  .callout {
+    border-left: 4px solid var(--citrus);
+    background: rgba(233, 184, 80, 0.08);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+  }
+  .callout strong { color: var(--text); }
+
+  /* Where they buy */
+  .channels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .channel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .channel-card h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .channel-card p { font-size: 0.88rem; color: var(--text-body); margin-bottom: 0; }
+  .channel-card .channel-tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--savia);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  /* Profile */
+  .profile-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .profile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .profile .profile-icon {
+    width: 36px; height: 36px;
+    background: var(--savia-soft);
+    color: var(--savia);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .profile.fitlab .profile-icon { background: var(--fitlab-soft); color: var(--fitlab); }
+  .profile h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+  .profile p { font-size: 0.88rem; color: var(--text-body); margin: 0; }
+
+  .brand-dot {
+    display: inline-block;
+    width: 10px; height: 10px; border-radius: 50%;
+    margin-right: 0.5rem;
+    vertical-align: 1px;
+  }
+  .brand-dot.savia { background: var(--savia); }
+  .brand-dot.fitlab { background: var(--fitlab); }
+
+  .leaf-divider {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .leaf-divider svg { height: 24px; width: auto; opacity: 0.5; }
+
+  /* Footer */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.7);
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+  }
+  footer .container { max-width: 1200px; }
+  footer h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  footer p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.75rem; }
+  footer ul { list-style: none; font-size: 0.88rem; }
+  footer ul li { padding: 0.25rem 0; }
+  footer .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  @media (max-width: 880px) {
+    section { padding: 3rem 0; }
+    h1 { font-size: clamp(1.85rem, 7vw, 2.5rem); }
+    .compare { grid-template-columns: 1fr; }
+    .territory-map { grid-template-columns: 1fr; }
+    .territory { border-right: none; border-bottom: 1px solid var(--border); }
+    .territory:last-child { border-bottom: none; }
+    .journey-track { grid-template-columns: 1fr; gap: 1.25rem; }
+    .targets-grid { grid-template-columns: 1fr; }
+    .risk-grid { grid-template-columns: 1fr; }
+    .topnav ul { display: none; }
+    footer .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .reco { grid-template-columns: 40px 1fr; gap: 1rem; }
+    .reco-num { font-size: 2rem; }
+  }
+
+  @media print {
+    .topnav { display: none; }
+    section { padding: 2rem 0; page-break-inside: avoid; }
+    .hero { padding: 2rem 0; }
+    body { background: white; }
+    .card, .topic-card, .reco, .journey-step { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="nav-brand">
+      Savia <span style="color: var(--text-muted); font-weight: 300;">+</span> Fit Lab
+      <small>Análisis de territorio · Agencias Motta</small>
+    </div>
+    <ul>
+      <li><a href="#metodologia">Metodología</a></li>
+      <li><a href="#habitos">Hábitos</a></li>
+      <li><a href="#perfiles">Perfiles</a></li>
+      <li><a href="#imagen-savia">Imagen Savia</a></li>
+      <li><a href="#imagen-fitlab">Imagen Fit Lab</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#territorios">Territorios</a></li>
+      <li><a href="#unificacion">Unificación</a></li>
+      <li><a href="#recomendaciones">Recomendaciones</a></li>
+      <li><a href="#conclusiones">Conclusiones</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container-narrow">
+    <span class="eyebrow">Estudio cualitativo</span>
+    <h1>Estudio cualitativo para Agencias Motta:<br><span class="savia-mark">Savia</span> + <span class="fitlab-mark">Fit&nbsp;Lab</span>.</h1>
+    <p class="lead" style="max-width: 62ch; margin-top: 1rem;">
+      Estudio para entender los hábitos de consumo en la categoría de vitaminas, suplementos y proteínas, identificar el territorio que ocupa cada marca, ver dónde se encuentran y entender los pros, los contras y los riesgos de unificarlas o dejarlas como están.
+    </p>
+
+    <dl class="hero-meta">
+      <div>
+        <dt>Período</dt>
+        <dd>Abril 2026</dd>
+      </div>
+    </dl>
+  </div>
+</header>
+
+<div class="leaf-divider">
+  <svg viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 12 H80" stroke="#2d5a4a" stroke-width="1" stroke-linecap="round"/>
+    <path d="M120 12 C115 5, 110 5, 105 12 C110 19, 115 19, 120 12 Z" fill="#2d5a4a"/>
+    <path d="M120 12 C125 5, 130 5, 135 12 C130 19, 125 19, 120 12 Z" fill="#d96b3d"/>
+    <path d="M160 12 H238" stroke="#d96b3d" stroke-width="1" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- 01 METODOLOGÍA -->
+<section id="metodologia">
+  <div class="container-narrow">
+    <div class="section-title">
+      <span class="eyebrow">01 · Metodología</span>
+      <h2>Cuatro fuentes que se cruzan.</h2>
+      <p>El estudio combina entrevistas en sitio a clientes durante la compra, entrevistas a colaboradores que atienden a esos mismos clientes a diario y focus groups segmentados por edad. Cruzar las fuentes ayuda a separar lo que la gente dice de lo que de verdad hace.</p>
+    </div>
+
+    <div class="meth-grid">
+      <div class="meth-card">
+        <span class="meth-num">24</span>
+        <h5>Entrevistas en sitio · Fit Lab</h5>
+        <p>Aborde breve dentro de tienda durante la compra. El campo cubrió seis sucursales: Megapolis, Obarrio, Dorado, Cangrejo, 12 de Octubre y Versalles.</p>
+      </div>
+      <div class="meth-card">
+        <span class="meth-num">12</span>
+        <h5>Entrevistas en sitio · Savia</h5>
+        <p>Aborde breve en piso. Cubrió Town Center y San Francisco.</p>
+      </div>
+      <div class="meth-card">
+        <span class="meth-num">8</span>
+        <h5>Entrevistas a colaboradores</h5>
+        <p>Encargados y vendedores en piso, en Savia y Fit Lab. Aportan la lectura desde el lado de la atención.</p>
+      </div>
+      <div class="meth-card">
+        <span class="meth-num">3</span>
+        <h5>Focus groups por edad</h5>
+        <p>Tres sesiones segmentadas: adultos jóvenes, edad media y adultos mayores. Incluyen reacción en vivo a las redes sociales de ambas marcas.</p>
+      </div>
+      <div class="meth-card">
+        <span class="meth-num">2</span>
+        <h5>Entrevistas a coaches Smart Fit</h5>
+        <p>Aportan la voz del influenciador de decisión dentro del gimnasio: qué recomiendan, qué les falta a las marcas y cómo ven a la competencia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 HÁBITOS DE CATEGORÍA -->
+<section id="habitos" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">02 · Hábitos de la categoría</span>
+      <h2>Por qué consume la gente, qué consume.</h2>
+      <p>Antes de mirar a Savia y a Fit Lab conviene entender cómo se mueve la gente en la categoría de suplementos, vitaminas y proteínas. Los focus groups dibujan tres motivaciones principales y un mapa de canales de compra que va mucho más allá de las tiendas especializadas.</p>
+    </div>
+
+    <h3 style="margin-top: 1rem;">Por qué consumen</h3>
+    <div class="topic-grid">
+      <div class="topic-card">
+        <span class="topic-num">01</span>
+        <h4>Salud y prevención</h4>
+        <p>El motor más fuerte. Manejo de condiciones (tiroides, autoinmunes, articulaciones, presión, triglicéridos), prevención por edad, microbiota, energía y manejo del estrés. La frase que se repite: "para poder funcionar".</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">02</span>
+        <h4>Rendimiento físico</h4>
+        <p>En quien hace ejercicio: proteína, creatina, aminoácidos y pre-entrenos para ganar masa muscular, recuperar y aguantar el entrenamiento. Aparece más fuerte en el target joven y en los activos de edad media.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">03</span>
+        <h4>Estética y longevidad</h4>
+        <p>Verse bien hoy y llegar bien a la vejez. La masa muscular como prevención de osteoporosis, el colágeno por belleza, la salud mental como parte del bienestar general. La motivación se admite con menos pudor de lo que se esperaría.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 4rem;">Qué consumen</h3>
+    <p style="color: var(--text-muted); max-width: 60ch;">El consumo se reparte en cinco bloques. La mezcla cambia según el target: los mayores cargan más vitaminas y minerales, los jóvenes más proteína y creatina.</p>
+    <div class="topic-grid" style="margin-top: 1.5rem;">
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Vitaminas y minerales</h4>
+        <p>Vitamina D, C, B12, complejo B, calcio, zinc, hierro, multivitamínicos.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Suplementos funcionales</h4>
+        <p>Magnesio (en sus distintas formas: glicinato, citrato, óxido), omega 3, colágeno, melatonina, berberina, adaptógenos, probióticos, enzimas digestivas.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Proteínas</h4>
+        <p>En polvo, líquidas listas, vegetales, isoladas. La elección se hace por sabor, por dosis y, a veces, por intolerancia.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Creatina y aminoácidos</h4>
+        <p>Creatina monohidrato, BCAA, glutamina. Para masa muscular y recuperación.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Pre-entrenos y energía</h4>
+        <p>C4 y similares, electrolitos, carbohidratos en polvo, bebidas energéticas. Más concentrado en el cliente del gimnasio.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 4rem;">Dónde compran</h3>
+    <p style="color: var(--text-muted); max-width: 60ch;">Hay tres tipos de canal. La elección entre uno y otro depende de cuánto sabe la persona, cuánto tiene a la mano y cuánto quiere ahorrar.</p>
+
+    <div class="channels-grid">
+      <div class="channel-card">
+        <span class="channel-tag">Canal 1</span>
+        <h5>Farmacias y supermercados</h5>
+        <p>Arrocha, Farma Value, Metro, Rey, Riba Smith. La principal razón es la cercanía: la gente compra ahí porque ya está pasando. Para vitaminas y omegas, el cliente no siente que necesite ir a un lugar especializado.</p>
+      </div>
+      <div class="channel-card">
+        <span class="channel-tag">Canal 2</span>
+        <h5>Volumen y precio</h5>
+        <p>PriceSmart como el más mencionado. La gente compra ahí cuando ya conoce el producto y quiere el bote grande a mejor precio. La conversación con el staff aquí no existe; es compra cerrada.</p>
+      </div>
+      <div class="channel-card">
+        <span class="channel-tag">Canal 3</span>
+        <h5>Tiendas especializadas</h5>
+        <p>En las sesiones de focus se mencionaron principalmente Vitamin Shop, GNC, Power, Fitness Game y Orgánica. En las entrevistas en sitio se sumaron Fitness Game, Fit Lab, Savia, Aflora Clinic y Cropharma. Aquí la persona busca asesoría, variedad o un producto puntual que no encuentra en otro lado.</p>
+      </div>
+      <div class="channel-card">
+        <span class="channel-tag">Canal 4</span>
+        <h5>Compras online</h5>
+        <p>Amazon es la primera opción cuando un producto específico no está en tienda local. También aparece como respaldo cuando la marca de confianza dejó de surtir aquí.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 2.5rem;">
+      <strong>Lo que pesa al elegir canal:</strong> cercanía, precio, descuentos vigentes (jubilados, programas de trabajo, afiliaciones), confianza en la marca específica del producto y, cuando la persona no sabe lo que necesita, la presencia de alguien que la oriente.
+    </div>
+
+    <h3 style="margin-top: 4rem;">Fuentes de información</h3>
+    <p style="color: var(--text-muted); max-width: 60ch;">La decisión de qué tomar rara vez es propia. Casi siempre llega filtrada por uno o varios de estos canales.</p>
+    <div class="topic-grid" style="margin-top: 1.5rem;">
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Coaches y entrenadores</h4>
+        <p>El coach del gimnasio recomienda y muchas veces lleva al cliente a la tienda directamente. Las recomendaciones del coach se aceptan con menos cuestionamiento que las del staff de tienda.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Internet, ChatGPT, Gemini</h4>
+        <p>El cliente investiga antes y durante la compra. Toma fotos del producto, consulta componentes, valida marcas. Ya no se confía solo en lo que dice el envase.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Boca a boca</h4>
+        <p>Familia, amigos, grupo del gimnasio. Recomendaciones puntuales que se pasan entre conocidos.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Redes sociales</h4>
+        <p>Instagram y TikTok aceleran tendencias (melena de león, berberina, suplementos virales). Lo que se vuelve viral se busca en tienda meses después.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Componentes del envase</h4>
+        <p>Una parte del público (el más informado) compara miligramos, tipo de aminoácidos, presencia de cafeína. Para ese segmento, la marca importa menos que el contenido.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">·</span>
+        <h4>Médicos y especialistas</h4>
+        <p>Cardiólogos, endocrinólogos, nutricionistas, médicos funcionales, internistas. Aparece sobre todo cuando el cliente llega con un síntoma o condición específica y dispara compras puntuales con producto recomendado. En los focus también se mencionan médicos que generan contenido en redes sociales (tipo Doctor Phil y similares, locales o internacionales) y que terminan funcionando como referencia para decidir qué tomar.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 4rem;">Por qué no van a lugares especializados</h3>
+    <p style="color: var(--text-muted); max-width: 60ch;">Una de las preguntas centrales del estudio: por qué la gente compra suplementos y vitaminas en farmacias, supermercados y Pricesmart en vez de ir a tiendas especializadas. Esto sale repetido en los focus groups con bastante claridad.</p>
+
+    <div class="topic-grid" style="margin-top: 1.5rem;">
+      <div class="topic-card">
+        <span class="topic-num">01</span>
+        <h4>Cercanía y conveniencia</h4>
+        <p>"Arrocha está en todas partes". Para vitaminas comunes (vitamina C, omega 3, magnesio), el cliente no siente que valga la pena planear un viaje a una tienda especializada. Compra en lo que le quede en el camino.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">02</span>
+        <h4>Precio y volumen</h4>
+        <p>Pricesmart sale más barato cuando se compra el bote grande. Los supermercados ofrecen descuentos por afiliación, programas de jubilados o convenios de trabajo. Para productos commodity, eso pesa más que la asesoría.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">03</span>
+        <h4>Ya saben lo que quieren</h4>
+        <p>Cuando el cliente ya conoce el producto y la marca que toma, no necesita orientación. Va a comprar directo donde lo encuentre. La tienda especializada solo gana cuando hay duda o cuando se busca algo difícil de encontrar.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">04</span>
+        <h4>La asesoría especializada no siempre cumple</h4>
+        <p>Varios participantes mencionaron experiencias en tiendas especializadas donde el staff no supo orientarlos o no ofreció alternativas cuando el producto buscado no estaba. Cuando eso pasa, el cliente concluye que no vale la pena el viaje y vuelve a la farmacia.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">05</span>
+        <h4>Stock y respaldo de Amazon</h4>
+        <p>Cuando un producto específico no está en la tienda local, Amazon es el respaldo natural. La fuga es directa: si la tienda especializada no tiene stock, la compra se va al e-commerce sin escala intermedia.</p>
+      </div>
+      <div class="topic-card">
+        <span class="topic-num">06</span>
+        <h4>Asociación con farmacia para condiciones</h4>
+        <p>Cuando hay receta médica, el cliente piensa primero en farmacia, no en tienda especializada. La farmacia carga el código de "salud", la especializada se asocia más al "estilo de vida". Esa asociación juega en contra de Savia para captar al cliente con condición específica.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 2.5rem;">
+      <strong>Insight central:</strong> el cliente no decide entre canales por afinidad de marca. Decide por conveniencia, precio y certeza. La tienda especializada solo gana cuando ofrece algo que el canal no especializado no puede ofrecer: asesoría experta real, variedad profunda en una categoría o un servicio diferenciador como el Inbody. Sin eso, pierde por inercia.
+    </div>
+
+    <h3 style="margin-top: 4rem;">Lo que aportan los coaches</h3>
+    <p style="color: var(--text-muted); max-width: 60ch;">Las dos entrevistas a coaches de Smart Fit suman una capa importante: la voz del influenciador de decisión dentro del gimnasio. El coach es quien recomienda, lleva al cliente a la tienda y muchas veces decide qué se compra.</p>
+
+    <div class="topic-grid" style="margin-top: 1.5rem;">
+      <div class="topic-card fitlab">
+        <span class="topic-num">·</span>
+        <h4>El staff de Fit Lab sabe de suplementación, pero no de wellness</h4>
+        <p>Los coaches reportan que el staff Fit Lab maneja bien proteína, creatina y pre-entreno, pero les falta capacitación en vitaminas y minerales. Eso limita la venta cruzada cuando el cliente busca algo más allá del territorio deportivo puro.</p>
+      </div>
+      <div class="topic-card fitlab">
+        <span class="topic-num">·</span>
+        <h4>Debe impulsarse más el cross-selling</h4>
+        <p>Los coaches notan que el staff atiende lo que el cliente pide, pero rara vez ofrece complementos o alternativas. "Si yo compro un producto, también podrían ofrecerme otro que sirve para esto y aquello, y no lo hacen".</p>
+      </div>
+      <div class="topic-card fitlab">
+        <span class="topic-num">·</span>
+        <h4>Horarios de tienda inconsistentes</h4>
+        <p>En al menos una sucursal los coaches reportan que la tienda está cerrada en las horas pico donde más se la necesita. Eso fuerza a sus clientes a buscar alternativas afuera del gym.</p>
+      </div>
+      <div class="topic-card fitlab">
+        <span class="topic-num">·</span>
+        <h4>Fitness Game gana en orientación</h4>
+        <p>Los coaches comparan: en Fitness Game el staff explica para qué sirve cada producto y recomienda alternativas. Esa diferencia en atención es lo que más mueve la preferencia entre una tienda y la otra. Los precios entre ambas son similares; lo que rompe el empate es la asesoría y, en el caso de Fit Lab, la membresía Smart Fit.</p>
+      </div>
+      <div class="topic-card fitlab">
+        <span class="topic-num">·</span>
+        <h4>La membresía Smart Fit es invisible para muchos</h4>
+        <p>Los coaches confirman que pocos clientes conocen la membresía Smart Fit que da descuento en Fit Lab. La ventaja existe pero no se está comunicando.</p>
+      </div>
+      <div class="topic-card fitlab">
+        <span class="topic-num">·</span>
+        <h4>Fit Lab vive encerrada</h4>
+        <p>Los coaches lo nombran directo: la marca solo se ve adentro del gym y del mall. No la ven en redes, no la ven en eventos, no la ven en competencias deportivas. La oportunidad de meterse en eventos de fisicoculturismo y de la comunidad fitness está sin trabajar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PERFILES -->
+<section id="perfiles">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">03 · Arquetipos del cliente</span>
+      <h2>Quién entra a cada tienda.</h2>
+      <p>Los arquetipos salen del cruce entre lo que dicen los clientes en sitio y lo que reportan los colaboradores que los atienden a diario. Hay solapamiento, pero el peso demográfico y la motivación de compra cambian de una marca a otra.</p>
+    </div>
+
+    <h3 style="margin-top: 2rem; color: var(--savia);">
+      <span class="brand-dot savia"></span>Arquetipos · Savia
+    </h3>
+    <div class="profile-row">
+      <div class="profile">
+        <div class="profile-icon">A</div>
+        <h4>Mujer adulta orientada a prevención</h4>
+        <p>Compra para articulaciones, energía, salud cardiovascular, menopausia, fatiga, estrés y sueño. Top de productos: magnesio, omega 3, multivitamínico, melatonina.</p>
+      </div>
+      <div class="profile">
+        <div class="profile-icon">B</div>
+        <h4>Persona en proceso de bajar peso</h4>
+        <p>Busca berberina, omega para triglicéridos, glutamina. Aquí cruza con el territorio Fit Lab cuando el staff recomienda combinar suplemento con ejercicio.</p>
+      </div>
+      <div class="profile">
+        <div class="profile-icon">C</div>
+        <h4>Cliente derivado por médico</h4>
+        <p>Llega con producto puntual recomendado por un gastroenterólogo, un nutricionista o un médico funcional. Su lealtad es al producto, no a la marca de la tienda.</p>
+      </div>
+      <div class="profile">
+        <div class="profile-icon">D</div>
+        <h4>Validador escéptico</h4>
+        <p>Consulta internet o ChatGPT en la tienda antes de comprar. Demanda transparencia y marcas que percibe como "limpias" como Garden of Life, Pure, Himalaya o NOW.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 4rem; color: var(--fitlab);">
+      <span class="brand-dot fitlab"></span>Arquetipos · Fit Lab
+    </h3>
+    <div class="profile-row">
+      <div class="profile fitlab">
+        <div class="profile-icon">A</div>
+        <h4>Usuario gym diario</h4>
+        <p>Pasa por la tienda todos los días al ir al gym. Compra agua, café, C4 (pre-entreno), proteína y creatina. Conoce al staff por nombre.</p>
+      </div>
+      <div class="profile fitlab">
+        <div class="profile-icon">B</div>
+        <h4>Aumentador de masa</h4>
+        <p>Llega con un objetivo claro: ganar masa muscular. Demanda creatina, proteína, multivitamínico y pre-entreno con sabores específicos.</p>
+      </div>
+      <div class="profile fitlab">
+        <div class="profile-icon">C</div>
+        <h4>Quema-grasa</h4>
+        <p>Busca quemadores, omega 3 para bajar de peso, proteína baja en grasa y carbohidrato. Necesita asesoría en distintos puntos: dosis, ingredientes, combinaciones.</p>
+      </div>
+      <div class="profile fitlab">
+        <div class="profile-icon">D</div>
+        <h4>Visitante puntual</h4>
+        <p>Son los menos. Compran un producto específico que solo encuentran ahí. Les frustra el control de acceso al gimnasio cuando no son miembros.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 3rem;">
+      <strong>Donde los arquetipos se cruzan:</strong> el arquetipo B de Savia (bajar de peso) y el arquetipo C de Fit Lab (quema-grasa) son la misma persona, vista desde dos marcas. Lo mismo pasa con el cliente Fit Lab que pide magnesio para dormir o con la cliente Savia que pide proteína y creatina. El consumidor único ya existe; las marcas todavía no le hablan como uno.
+    </div>
+  </div>
+</section>
+
+<!-- 04 IMAGEN DE MARCA · SAVIA -->
+<section id="imagen-savia" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">04 · Imagen de marca · Savia</span>
+      <h2>Qué transmite Savia.</h2>
+      <p>Lectura armada con lo que vieron y dijeron los participantes de los tres focus groups al entrar en vivo al Instagram de Savia, sin contexto previo. Tres edades, tres lecturas que coinciden más de lo que se diferencian.</p>
+    </div>
+
+    <div class="targets-grid">
+      <div class="target-card savia">
+        <span class="target-tag">Adultos jóvenes</span>
+        <h4>Lugar de nicho, hospitalario</h4>
+        <ul>
+          <li>"Se ve hospital, medicinal, premium pero para el que ya conoce"</li>
+          <li>"Dirigido a personas de más de 40, sobre todo mujeres con cierto nivel económico"</li>
+          <li>"El logo no me dice nada"</li>
+          <li>"La página web está mucho mejor armada que el Instagram"</li>
+          <li>"Si entro al Instagram pienso: eso no es para mí"</li>
+        </ul>
+      </div>
+      <div class="target-card savia">
+        <span class="target-tag">Edad media</span>
+        <h4>Cuenta vieja, abrumadora</h4>
+        <ul>
+          <li>"Pareciera una cuenta vieja, una cuenta que se quedó estancada"</li>
+          <li>"Es como ver un catálogo: muchos frascos, mucha información, no inspira a abrir nada"</li>
+          <li>"Le falta feeling"</li>
+          <li>"Está dirigido a personas mayores de 40, sobre todo mujeres"</li>
+          <li>"La marca tiene buenos productos pero la imagen no acompaña"</li>
+        </ul>
+      </div>
+      <div class="target-card savia">
+        <span class="target-tag">Adultos mayores</span>
+        <h4>Salud, paz, "tercera edad"</h4>
+        <ul>
+          <li>"Salud, medicinal, paz, confianza"</li>
+          <li>"Se ve para tercera edad, por los colores"</li>
+          <li>"Yo conecté más con Savia, me dio seguridad"</li>
+          <li>"El nombre no te dice nada hasta que entras"</li>
+          <li>"Las páginas están desordenadas, hay que meterles las manos"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 2.5rem;">
+      <strong>Lo que se repite en los tres targets:</strong> imagen "hospitalaria" o "medicinal", percepción de marca dirigida a mujeres mayores de 40, sensación de cuenta abrumadora con muchas marcas y poco hilo conductor. La página web salva mucho de esto, pero el Instagram no la representa. El nombre "Savia" todavía no logra evocar con claridad lo que la marca vende; inclusive unos cuantos participantes la confunden con la farmacia "Saba".
+    </div>
+  </div>
+</section>
+
+<!-- 05 IMAGEN DE MARCA · FIT LAB -->
+<section id="imagen-fitlab">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">05 · Imagen de marca · Fit Lab</span>
+      <h2>Qué transmite Fit Lab.</h2>
+      <p>Mismo ejercicio en los tres focus groups, ahora con el Instagram de Fit Lab. La marca aterriza más rápido en la cabeza del público, aunque no todos hayan entrado a una tienda.</p>
+    </div>
+
+    <div class="targets-grid">
+      <div class="target-card fitlab">
+        <span class="target-tag">Adultos jóvenes</span>
+        <h4>Confiable, conocido</h4>
+        <ul>
+          <li>"Da seguridad y conocimiento. Tiene muchos años en el mercado"</li>
+          <li>"Es un lugar confiable, ya lo tengo en la cabeza"</li>
+          <li>"Suplementos para gente que entrena, no marca edad: 18 a 60"</li>
+          <li>"El nombre te lleva: Fit Lab, ya sabes que ahí vas a encontrar algo de tu cuerpo, tu ejercicio"</li>
+          <li>"Me transmite confianza y trayectoria"</li>
+        </ul>
+      </div>
+      <div class="target-card fitlab">
+        <span class="target-tag">Edad media</span>
+        <h4>Performance, rendimiento, gym</h4>
+        <ul>
+          <li>"Gente comprometida con el cuerpo y el rendimiento"</li>
+          <li>"El negro y el rojo te llevan a state of mind de fuerza"</li>
+          <li>"Lo conozco. Si necesito proteína sé que ahí lo encuentro"</li>
+          <li>"Tiene coherencia gráfica entre los posts, hay una línea visual"</li>
+          <li>"Para alto rendimiento más que para wellness"</li>
+        </ul>
+      </div>
+      <div class="target-card fitlab">
+        <span class="target-tag">Adultos mayores</span>
+        <h4>Deporte, alto rendimiento</h4>
+        <ul>
+          <li>"Alto rendimiento, deportistas en serio"</li>
+          <li>"Más joven, más fitness, no me veo entrando ahí"</li>
+          <li>"Lo conozco aunque no recuerde dónde lo vi"</li>
+          <li>"El nombre Fit Lab me suena, lo he visto"</li>
+          <li>"Está más enfocada que Savia, se entiende qué vende"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 2.5rem;">
+      <strong>Lo que se repite en los tres targets:</strong> trayectoria, confianza, claridad de propósito. La marca se entiende rápido aunque no todos hayan entrado a una tienda; el nombre "Fit Lab" funciona como atajo cognitivo. El riesgo: la marca se percibe muy ligada al gimnasio y al alto rendimiento, lo cual deja afuera al público de prevención y wellness que sí podría comprarle.
+    </div>
+
+  </div>
+</section>
+
+<!-- 06 AWARENESS -->
+<section id="awareness" style="background: var(--bg-warm);">
+  <div class="container-narrow">
+    <div class="section-title">
+      <span class="eyebrow">06 · Awareness</span>
+      <h2>Qué tanto se reconocen las marcas.</h2>
+      <p>Tomado de las entrevistas en sitio y, sobre todo, de los tres focus groups donde se preguntó por las marcas sin contexto previo.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="color: var(--fitlab);">Fit Lab resuena</h3>
+      <p>En los tres focus groups la mayoría había escuchado o visto Fit Lab, aunque varios no recordaban con precisión en qué sucursal lo vieron o si habían entrado. El nombre les resonaba. Esa familiaridad se sostiene en años en el mercado y en la presencia dentro de los Smart Fit.</p>
+    </div>
+
+    <div class="card" style="margin-top: 1rem;">
+      <h3 style="color: var(--savia);">Savia se reconoce mucho menos</h3>
+      <p>Casi nadie en los focus groups había escuchado la marca antes de la sesión. Quien la había buscado lo hizo googleando un producto específico y terminó llegando a Savia por esa vía. Vale la pena señalar que hubo una leve confusión en algunos participantes con la farmacia Saba (con B grande), por similitud fonética.</p>
+    </div>
+
+    <div class="card" style="margin-top: 1rem;">
+      <h3>En sitio, los clientes tampoco describen bien las marcas</h3>
+      <p>Tanto en Fit Lab como en Savia, varios clientes entrevistados respondieron "no la conozco", "no me transmite nada" o "no sé a quién se dirige" cuando se les preguntó por la marca. La compra ocurre por la conveniencia (estar en el gym, ver el letrero del mall) o por una necesidad puntual de producto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 CUSTOMER JOURNEY -->
+<section id="journey">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">07 · Customer journey</span>
+      <h2>El camino de compra en cada marca.</h2>
+      <p>Cómo es el camino típico desde que algo lo trae a la tienda hasta que vuelve. Cada paso muestra el momento y dónde se traba la compra.</p>
+    </div>
+
+    <!-- Journey FitLab -->
+    <div class="journey-section">
+      <div class="journey-header">
+        <h3>Cliente Fit Lab</h3>
+        <span class="pill fitlab">Ruta dominante</span>
+      </div>
+
+      <div class="journey-track fitlab">
+        <div class="journey-step">
+          <span class="step-num">Paso 1 · Lo que lo trae</span>
+          <h5>Voy al gimnasio</h5>
+          <p>Lo que lo trae no es la tienda, es la rutina del gym. La tienda está en el camino. Pico al amanecer y al final de la tarde.</p>
+          <div class="estorba"><strong>El pero</strong>El cliente que no es miembro no entra fácil: el control de acceso del gym lo frena.</div>
+        </div>
+        <div class="journey-step">
+          <span class="step-num">Paso 2 · Compra de impulso</span>
+          <h5>Agarro algo de la nevera</h5>
+          <p>Antes o después del entrenamiento. Agua, café, C4, bebida lista. Cero pensamiento. La nevera mueve la mayor rotación.</p>
+          <div class="estorba"><strong>El pero</strong>No hay sillas ni mesas para tomarse el batido ahí; piden tapas y carrizos.</div>
+        </div>
+        <div class="journey-step">
+          <span class="step-num">Paso 3 · Asesoría</span>
+          <h5>Pregunto al staff si tengo duda</h5>
+          <p>El cliente recurrente confía y deja que el staff le recomiende. El nuevo recibe la guía corta: creatina primero, luego proteína, luego complementos.</p>
+          <div class="estorba"><strong>El pero</strong>Existen diferencias en las fuentes de aprendizaje del staff; el conocimiento no es uniforme.</div>
+        </div>
+        <div class="journey-step">
+          <span class="step-num">Paso 4 · Compra</span>
+          <h5>Pago, mayormente en quincena</h5>
+          <p>Quien conoce aplica la membresía Smart Fit, que antes daba 25% y ahora da 20% (mencionado en la sucursal de 12 de Octubre, donde el cliente no se ha dado cuenta del cambio). Muchos esperan la quincena por el costo del bote grande.</p>
+          <div class="estorba"><strong>El pero</strong>Algunos clientes dudan por el costo y buscan mejores precios en la competencia.</div>
+        </div>
+        <div class="journey-step">
+          <span class="step-num">Paso 5 · Vuelta</span>
+          <h5>Vuelvo mañana</h5>
+          <p>La nevera se recompra a diario. El bote de creatina o proteína se recompra al mes. Muchos clientes piden recurrentemente lo mismo y el staff ya lo conoce.</p>
+          <div class="estorba"><strong>El pero</strong>Si el sabor o la marca específica no está, algunos se van a la competencia buscando mejores precios.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Journey Savia -->
+    <div class="journey-section">
+      <div class="journey-header">
+        <h3>Cliente Savia</h3>
+        <span class="pill savia">Ruta dominante</span>
+      </div>
+
+      <div class="journey-track savia">
+        <div class="journey-step">
+          <span class="step-num">Paso 1 · Lo que lo trae</span>
+          <h5>Tengo una necesidad</h5>
+          <p>Estrés, fatiga, problemas para dormir, deseo de bajar azúcar, prevención por edad o seguir una recomendación médica. Aparecen mucho melatonina, magnesio y omega 3 como puertas de entrada.</p>
+          <div class="estorba"><strong>El pero</strong>Algunos productos virales tardan tiempo en llegar a la tienda; cuando llegan, ya pasó la moda.</div>
+        </div>
+        <div class="journey-step">
+          <span class="step-num">Paso 2 · Descubrimiento</span>
+          <h5>Veo el letrero al pasar</h5>
+          <p>Mall, restaurante de al lado, trabajo cerca. Entra a curiosear, no entra premeditado. Si el día le permite presupuesto, prueba algo.</p>
+          <div class="estorba"><strong>El pero</strong>El letrero funciona solo para quien ya conoce la marca; para el resto es solo curiosidad de paso.</div>
+        </div>
+        <div class="journey-step">
+          <span class="step-num">Paso 3 · Validación</span>
+          <h5>Reviso en mi celular</h5>
+          <p>Internet, ChatGPT, foto al producto, búsqueda de la marca en redes. Compara con marcas extranjeras como Garden of Life, Pure, NOW y Life Extension.</p>
+          <div class="estorba"><strong>El pero</strong>La comunicación todavía no ha logrado posicionar la marca y transmitir la categoría con claridad; algunos lo confunden con sábila o con la farmacia Saba.</div>
+        </div>
+        <div class="journey-step">
+          <span class="step-num">Paso 4 · Asesoría</span>
+          <h5>Consulto al staff</h5>
+          <p>La asesoría humana es lo que más mueve fidelidad. La cliente recurrente pregunta por su nombre. Para la cliente nueva, la diferencia entre venderle y perder la venta está en cómo el staff la oriente.</p>
+          <div class="estorba"><strong>El pero</strong>Cuando el staff no logra orientar bien o el cliente no encuentra una marca conocida, la duda no se cierra.</div>
+        </div>
+        <div class="journey-step">
+          <span class="step-num">Paso 5 · Compra</span>
+          <h5>Pago si supero el filtro</h5>
+          <p>El producto bajo $40 entra fácil; sobre $40 hay que justificar el valor. El Inbody, donde está disponible, funciona como gancho extra de recurrencia.</p>
+          <div class="estorba"><strong>El pero</strong>Si no hay stock del producto buscado, la compra se va a Amazon o a otra cadena.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 TERRITORIOS -->
+<section id="territorios" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">08 · Territorios de marca</span>
+      <h2>Dónde vive cada una y dónde se cruzan.</h2>
+      <p>Mapa construido a partir de los hábitos, los lugares de compra y lo que la gente dice de cada marca en las cuatro fuentes del estudio.</p>
+    </div>
+
+    <div class="territory-map">
+      <div class="territory savia">
+        <h4>Solo Savia</h4>
+        <ul>
+          <li>Vitaminas para condición específica</li>
+          <li>Magnesio en cápsula</li>
+          <li>Berberina y enzimas digestivas</li>
+          <li>Producto con recomendación o receta médica</li>
+          <li>Inbody (escáner corporal en San Francisco)</li>
+          <li>Cliente adulto 40+ no deportivo</li>
+          <li>Compra esporádica, mensual</li>
+          <li>El cliente decide después de pedir asesoría</li>
+        </ul>
+      </div>
+      <div class="territory shared">
+        <h4>Zona compartida</h4>
+        <ul>
+          <li>Magnesio</li>
+          <li>Omega 3</li>
+          <li>Multivitamínico</li>
+          <li>Colágeno</li>
+          <li>Proteína</li>
+          <li>Creatina</li>
+          <li>Cliente que quiere bajar de peso</li>
+          <li>Compra de suplemento + vitamina junta</li>
+        </ul>
+      </div>
+      <div class="territory fitlab">
+        <h4>Solo Fit Lab</h4>
+        <ul>
+          <li>Pre-entreno (C4, líquidos)</li>
+          <li>Aminoácidos y BCA</li>
+          <li>Quemadores con cafeína</li>
+          <li>Café de cafetería</li>
+          <li>Bebidas energéticas</li>
+          <li>Accesorios (guantes, straps, rodilleras)</li>
+          <li>Cliente 18-40, deportivo, va a diario</li>
+          <li>Compra de impulso casi todos los días</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 4rem;">Imagen y código de cada marca</h3>
+
+    <div class="compare" style="margin-top: 1.5rem;">
+      <div class="compare-savia">
+        <span class="brand-tag">Savia · imagen y código</span>
+        <h3 style="color: var(--savia); margin-top: 0.5rem;">Wellness, prevención, salud pensada</h3>
+        <ul class="card-list" style="margin-top: 1rem;">
+          <li>Habla de salud, bienestar, calma y prevención</li>
+          <li>Tono adulto 30+, sobre todo femenino</li>
+          <li>La asesoría humana es lo que la diferencia</li>
+          <li>El letrero del mall es lo que la hace visible</li>
+          <li>Riesgo: la imagen se ve muy comercial y por momentos hospitalaria, lo que genera distancia</li>
+        </ul>
+      </div>
+      <div class="compare-fitlab">
+        <span class="brand-tag">Fit Lab · imagen y código</span>
+        <h3 style="color: var(--fitlab); margin-top: 0.5rem;">Performance, gimnasio, rutina</h3>
+        <ul class="card-list fitlab" style="margin-top: 1rem;">
+          <li>Habla de deporte, energía, masa muscular y rutina</li>
+          <li>Tono activo 18-40, hombres y mujeres</li>
+          <li>Lo cómodo y el estar dentro del gym es su ventaja</li>
+          <li>Smart Fit le da el tráfico que sostiene la operación</li>
+          <li>Riesgo: queda percibida como "extensión del gym" más que como marca propia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 UNIFICACIÓN -->
+<section id="unificacion">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">09 · Unificación: oportunidades y riesgos</span>
+      <h2>Qué se gana y qué se arriesga si se unifica.</h2>
+      <p>El estudio no decide la pregunta. Lo que sí permite es ordenar pros y contras para que la decisión final se tome con los dos lados claros.</p>
+    </div>
+
+    <div class="risk-grid">
+      <div class="risk-block opp">
+        <h3>Oportunidades</h3>
+        <ol>
+          <li><strong>El cliente único ya existe.</strong> La persona que va al gym y también busca salud aparece en las dos tiendas. Hoy compra dos veces, en dos marcas.</li>
+          <li><strong>El cruce de productos ya pasa.</strong> En todos los Fit Lab hay productos Savia y en los dos Savia hay productos Fit Lab. La unificación formaliza algo que ya está ocurriendo.</li>
+          <li><strong>Una sola marca cuesta menos.</strong> Un solo presupuesto de redes, una sola voz, una sola identidad. Hoy las dos reportan que les falta comunicación.</li>
+          <li><strong>Fit Lab resuena más en la mente de la gente.</strong> En los focus groups el nombre les sonaba aunque no siempre recordaran dónde lo vieron.</li>
+          <li><strong>El cliente del gym ya pide wellness.</strong> Vitaminas, magnesio, omega 3, colágeno aparecen en lo que piden los clientes Fit Lab. Esa demanda hoy se atiende a medias.</li>
+          <li><strong>El cliente Savia ya pide performance.</strong> En San Francisco se venden proteína y creatina porque los clientes lo piden.</li>
+        </ol>
+      </div>
+
+      <div class="risk-block risk">
+        <h3>Riesgos</h3>
+        <ol>
+          <li><strong>Se puede perder al cliente Savia 40+ no deportivo.</strong> Si la marca paraguas comunica "fitness", la mujer adulta que entra a Town Center buscando magnesio para dormir puede no sentirse hablada. Es la clienta Savia más fiel y de mayor ticket.</li>
+          <li><strong>Las tiendas Fit Lab son chicas.</strong> Las que están dentro de Smart Fit son pequeñas por diseño; no entra el catálogo Savia completo.</li>
+          <li><strong>Se diluye el rebrand reciente de Savia.</strong> Hace poco se le hizo un rebrand y las ventas crecieron al simplificar el surtido. Volver a mezclar puede revertir esa ganancia.</li>
+          <li><strong>Algunos clientes pueden creer que cerró.</strong> Los recurrentes Savia interpretan el cambio como cierre de tienda. Tienen relación afectiva con la persona que los atiende.</li>
+          <li><strong>La asesoría wellness no es la misma que la deportiva.</strong> Recomendar berberina para triglicéridos y recomendar C4 para pre-entreno son disciplinas distintas. Unificar el staff requiere capacitación cruzada.</li>
+          <li><strong>Se puede perder el Inbody como diferenciador wellness.</strong> Funciona en Savia porque va con la asesoría de salud. En el contexto del gym puede leerse como un servicio más.</li>
+          <li><strong>La palabra "fit" excluye.</strong> Quien no se identifica como fit lee la palabra como "no es para mí" y no entra.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 3rem;">
+      <strong>Una voz que vale la pena rescatar:</strong> <em>"Si se va a unificar, hay que mantener la página de Savia para los productos wellness, pero la tienda física la pondría dentro de Fit Lab."</em> Es una de las pocas formulaciones que abre un camino concreto sin cerrar la puerta a ningún público.
+    </div>
+  </div>
+</section>
+
+<!-- 10 RECOMENDACIONES -->
+<section id="recomendaciones" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">10 · Recomendaciones para potenciar las marcas</span>
+      <h2>Qué puede hacer cada marca por su lado.</h2>
+      <p>Acciones que cada marca puede tomar de forma independiente, antes de cualquier decisión sobre unificación. Estas recomendaciones provienen directamente de los participantes del estudio.</p>
+    </div>
+
+    <h3 style="color: var(--fitlab); margin-top: 2rem;">
+      <span class="brand-dot fitlab"></span>Para Fit Lab
+    </h3>
+
+    <div class="reco-list">
+      <div class="reco fitlab">
+        <span class="reco-num">01</span>
+        <div>
+          <h4>Activar contenido orgánico con embajadores</h4>
+          <p>El principal hueco es redes sociales. La salida es contenido orgánico con personas reales (clientes, coaches, atletas), no campañas tipo brochure. Una frase que se repitió en las entrevistas: gallina que no cacarea, nadie sabe que puso el huevo.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">02</span>
+        <div>
+          <h4>Salir del Smart Fit hacia eventos deportivos</h4>
+          <p>Maratones, triatlones, carreras, pilates al aire libre en parque Omar. Hoy la marca depende del tráfico que entra al gym; cuando se cierra un Smart Fit se pierde la base de clientes. Estar afuera reduce esa dependencia y trae al cliente que no entra al gimnasio.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">03</span>
+        <div>
+          <h4>Sincronizar promociones flash con Smart Fit</h4>
+          <p>Cuando Smart Fit hace ofertas flash, Fit Lab debería salir el mismo día con su flash de suplementos. Doble impacto, doble visibilidad. Hoy las activaciones de las dos marcas van desfasadas.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">04</span>
+        <div>
+          <h4>Combos cruzados con vitaminas</h4>
+          <p>Proteína + omega 3, creatina + multivitamínico, pre-entreno + magnesio. Combos tipo "ganancia muscular completa". Los clientes responden bien a los combos que ya existen dentro de la misma categoría; el siguiente paso es cruzar territorios.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">05</span>
+        <div>
+          <h4>Capacitación formal del staff</h4>
+          <p>Hoy el staff sabe distintas cosas según quién sea: hay diferencias en las fuentes de aprendizaje. La asesoría es lo que más mueve fidelidad según los propios clientes, pero no se está estandarizando. Un programa de capacitación fortalece lo que ya funciona.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">06</span>
+        <div>
+          <h4>Diferenciador claro vs. Fitness Game</h4>
+          <p>Hoy Fit Lab y Fitness Game se perciben muy parecidos. La principal ventaja que se le reconoce a Fitness Game son sus promociones agresivas (combos cruzados, descuentos visibles), y eso es lo que más le mueve clientes. Conviene definir y comunicar qué hace distinto a Fit Lab: trayectoria, alianza con Smart Fit, asesoría del staff, marca propia. Sin un atributo claro que lo ancle, el cliente decide entre uno y otro por precio o por inercia.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="color: var(--savia); margin-top: 4rem;">
+      <span class="brand-dot savia"></span>Para Savia
+    </h3>
+
+    <div class="reco-list">
+      <div class="reco">
+        <span class="reco-num">01</span>
+        <div>
+          <h4>Trabajar la imagen visual</h4>
+          <p>Los focus groups coinciden en describirla como "hospitalaria", "abrumadora", "como un catálogo". La identidad visual le pide menos saturación, más línea gráfica clara, menos sensación de farmacia y más sensación de marca propia.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">02</span>
+        <div>
+          <h4>Alinear Instagram con la página web</h4>
+          <p>La página web está mejor armada que el Instagram, y el feed da la sensación de hablarle solo a mujeres 40+ cuando la oferta real es más amplia. El Instagram debería reflejar esa amplitud y no quedarse encerrado en un solo segmento.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">03</span>
+        <div>
+          <h4>Plan de redes con tendencia activa</h4>
+          <p>Algunos productos virales tardan en llegar a la tienda; cuando llegan, ya pasó el boom. Detectar la tendencia más rápido, importar antes y mostrarlo en redes con stock disponible cierra la fuga hacia Amazon, que hoy es el principal competidor en stock.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">04</span>
+        <div>
+          <h4>Programa de muestras gratis</h4>
+          <p>Lo dicen en sitio y lo dicen en focus groups: "que me lo den a probar". El cliente Savia pide alguna forma de bajar el riesgo antes de comprar producto sobre $40. Muestras pequeñas o degustación bajan la principal barrera reportada.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">05</span>
+        <div>
+          <h4>Inbody como gancho de fidelidad</h4>
+          <p>Funciona en San Francisco como gancho de recurrencia: la cliente vuelve para repetir la medición. Replicarlo en Town Center y en futuras sucursales convierte al escáner en parte de la compra y diferencia a Savia frente a la farmacia y al supermercado.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">06</span>
+        <div>
+          <h4>Reforzar y transmitir con más fuerza la propuesta de valor de Savia</h4>
+          <p>La propuesta de valor de Savia ya está construida; lo que falta es reforzarla y transmitirla con más agresividad. Hoy varios productos que vende Savia también están en supermercados y farmacias, lo cual le quita razón de visita. Una comunicación más activa y una experiencia diferenciada (asesoría, Inbody, marcas como Life Extension y NOW que ya forman parte del catálogo) le devuelve a la tienda la razón para ir hasta allá. Hay que comunicar con fuerza por qué vale la pena venir.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">07</span>
+        <div>
+          <h4>Diferenciador claro vs. la farmacia</h4>
+          <p>El cliente de wellness se va a Arrocha o a Pricesmart por costumbre. Para que vaya a Savia, la tienda tiene que ofrecerle algo que la farmacia no le da: asesoría experta, Inbody, marcas exclusivas, ambiente especializado. Hoy esa diferencia no se está comunicando con suficiente fuerza.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 SI SE DECIDE UNIFICAR -->
+<section id="si-unificar">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">11 · Qué considerar si se decide unificar</span>
+      <h2>Sugerencias para esa eventual decisión.</h2>
+      <p>El estudio no recomienda unificar ni dejar las marcas como están. Si se decide avanzar por el camino de unificación, estas son consideraciones que conviene tener sobre la mesa.</p>
+    </div>
+
+    <div class="reco-list">
+      <div class="reco shared">
+        <span class="reco-num">01</span>
+        <div>
+          <h4>Analizar la posibilidad de Fit Lab como casa, Savia como línea wellness</h4>
+          <p>Una opción evaluable es dejar Fit Lab como marca madre por el reconocimiento que ya tiene y por la red de Smart Fit. Savia pasaría a ser una línea explícita dentro: algo tipo "Savia by Fit Lab" o "Fit Lab Wellness". La idea sería conservar los códigos visuales adultos para no perder a la clienta de nicho.</p>
+        </div>
+      </div>
+      <div class="reco shared">
+        <span class="reco-num">02</span>
+        <div>
+          <h4>Tiendas con dos zonas claras</h4>
+          <p>Hoy ya pasa con las islas. La idea sería formalizarlo: zona Performance (proteína, creatina, pre-entreno, accesorios) y zona Wellness (vitaminas, magnesio, omega, prevención). Mobiliario, lenguaje y staff distintos dentro de la misma tienda.</p>
+        </div>
+      </div>
+      <div class="reco shared">
+        <span class="reco-num">03</span>
+        <div>
+          <h4>Migración por etapas, no de un solo golpe</h4>
+          <p>Hay riesgo de que los clientes recurrentes interpreten el cambio como cierre. Conviene migrar tienda por tienda, avisar al cliente con tiempo y planear una transición visual de 6 a 12 meses. Empezar por las tiendas con menos antigüedad o menos cliente fiel.</p>
+        </div>
+      </div>
+      <div class="reco shared">
+        <span class="reco-num">04</span>
+        <div>
+          <h4>Una marca con dos códigos</h4>
+          <p>Lo que se ve en los focus groups: una persona que combina vida fit y wellness (entrenamiento, alimentación y prevención). Una marca que cuida sin dejar de empujar. Asesoría experta del lado wellness, asesoría deportiva del lado performance, una sola identidad por encima.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 CONCLUSIONES -->
+<section id="conclusiones" style="background: var(--bg-warm);">
+  <div class="container">
+    <div class="section-title">
+      <span class="eyebrow">12 · Conclusiones</span>
+      <h2>Hallazgos principales.</h2>
+      <p>Síntesis de los hallazgos que más se repitieron en las cuatro fuentes y que conviene tener en cuenta para cualquier decisión posterior.</p>
+    </div>
+
+    <div class="reco-list">
+      <div class="reco">
+        <span class="reco-num">01</span>
+        <div>
+          <h4>El cliente único existe; las marcas todavía no le hablan como uno</h4>
+          <p>La persona que va al gimnasio y también busca salud aparece en las dos tiendas. Hoy compra dos veces, en dos marcas. Cada marca se sigue dirigiendo a su nicho, pero el cruce ya está pasando de forma orgánica en el día a día.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">02</span>
+        <div>
+          <h4>Awareness asimétrico: Fit Lab resuena, Savia no se reconoce</h4>
+          <p>En los tres focus groups la mayoría había escuchado o visto Fit Lab; casi nadie reconocía Savia. La compra en Savia ocurre por exposición visual del letrero o por necesidad puntual, no por afinidad de marca. Construir reconocimiento de Savia es una tarea grande y previa a cualquier movimiento estructural.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">03</span>
+        <div>
+          <h4>El ecosistema "Fit" en Panamá juega a favor y en contra</h4>
+          <p>Hay mucha palabra "Fit" en el mercado: Fitness Game, Fit Lab, Smart Fit, otros. Esa saturación ayuda al awareness de Fit Lab (el nombre se asocia rápido a la categoría) pero también la pone en una competencia frontal donde la diferenciación es lo que decide.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">04</span>
+        <div>
+          <h4>La comunicación todavía no ha posicionado la marca</h4>
+          <p>Inclusive unos cuantos participantes lo confunden con sábila o con la farmacia Saba. El reto está en lograr que la comunicación transmita con claridad qué se vende ahí; mientras el cliente no lo entienda solo viendo el letrero, el letrero pierde efectividad.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">05</span>
+        <div>
+          <h4>La asesoría es el activo más mencionado y el menos estandarizado</h4>
+          <p>Tanto en Fit Lab como en Savia, el cliente recurrente premia la asesoría humana del staff. Pero esa asesoría hoy depende de quién esté en piso ese día. Estandarizar capacitación es la palanca de mayor retorno, según colaboradores, clientes y coaches.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">06</span>
+        <div>
+          <h4>Fit Lab vive encerrada en el gimnasio</h4>
+          <p>Los coaches lo dicen, los clientes lo dicen, los focus lo dicen: la marca solo se ve adentro del gym y del mall. No está en redes con fuerza, no patrocina eventos deportivos, no aparece en la conversación afuera del Smart Fit. Esa dependencia del tráfico cautivo es estructuralmente frágil.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">07</span>
+        <div>
+          <h4>El Instagram de Savia no representa lo que la marca tiene</h4>
+          <p>La página web está mejor armada que el feed. El Instagram comunica una marca para mujeres mayores de 40 cuando la oferta real es más amplia. Esa contradicción entre canales le quita potencia a la marca.</p>
+        </div>
+      </div>
+      <div class="reco">
+        <span class="reco-num">08</span>
+        <div>
+          <h4>La gente no va a especializadas si la farmacia es suficiente</h4>
+          <p>Para vitaminas comunes, el cliente compra en la farmacia o el supermercado por inercia. La tienda especializada solo gana cuando ofrece asesoría real, variedad profunda o algo único como el Inbody. Sin eso, pierde por conveniencia.</p>
+        </div>
+      </div>
+      <div class="reco fitlab">
+        <span class="reco-num">09</span>
+        <div>
+          <h4>Fitness Game es la referencia frontal de Fit Lab</h4>
+          <p>Los coaches manifiestan que Fitness Game tiene mejor capacitación de staff y promociones agresivas. Fit Lab se sostiene por trayectoria y por la membresía Smart Fit; pero vale la pena señalar que esa membresía casi no fue mencionada por los colaboradores entrevistados (solo una sucursal la nombró espontáneamente), lo que sugiere revisar qué tanto se está ofreciendo realmente en piso. Cerrar la brecha en asesoría y reactivar la comunicación de la membresía son las dos prioridades inmediatas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 3rem; border-left-color: var(--savia); background: rgba(45, 90, 74, 0.06);">
+      <p style="margin: 0; font-family: 'Fraunces', serif; font-size: 1.05rem; line-height: 1.55; color: var(--text); font-style: italic;">Cada una de estas marcas habla con un cliente distinto, vive en un territorio distinto y responde a una motivación distinta. Esa diferencia es un activo, no un problema: bien trabajada, le permite a cada marca ocupar su espacio sin pelear por el mismo público. La oportunidad inmediata está en reforzar la propuesta de valor de cada una y darle más visibilidad a sus diferenciadores, para que el consumidor entienda con claridad por qué vale la pena entrar a Fit Lab y por qué vale la pena entrar a Savia. Con esa tarea adelantada, cada marca puede defender su territorio por separado y crecer desde ahí.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Análisis de Territorio de Marca</h4>
+        <p>Savia + Fit Lab · Agencias Motta · vía SL Consultores</p>
+        <p>Investigación cualitativa con entrevistas en sitio a clientes, entrevistas a colaboradores en tienda y focus groups segmentados por edad. Las fuentes se cruzan para separar lo que la gente dice de lo que de verdad hace.</p>
+        <p style="margin-top: 1.5rem; opacity: 0.7;">Abril 2026</p>
+      </div>
+      <div>
+        <h4>Fuentes</h4>
+        <ul>
+          <li>24 entrevistas en sitio Fit Lab</li>
+          <li>12 entrevistas en sitio Savia</li>
+          <li>8 colaboradores en tienda</li>
+          <li>3 focus groups por edad</li>
+          <li>2 entrevistas a coaches Smart Fit</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sucursales cubiertas</h4>
+        <ul>
+          <li>Fit Lab Megapolis</li>
+          <li>Fit Lab Obarrio</li>
+          <li>Fit Lab Dorado</li>
+          <li>Fit Lab Cangrejo</li>
+          <li>Fit Lab 12 de Octubre</li>
+          <li>Fit Lab Versalles</li>
+          <li>Savia Town Center</li>
+          <li>Savia San Francisco</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>Documento de trabajo. Cada hallazgo se sostiene en triangulación de fuentes.</span>
+      <span>Las citas textuales preservan el original sin atribución personal.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
